@@ -1,5 +1,6 @@
 # simpletrends
-Programmatic Client for tracking simple trends on Instagram
+
+Client for tracking simple trends on Instagram
 ======
 
 Background
