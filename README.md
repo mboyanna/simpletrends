@@ -1,12 +1,12 @@
 # simpletrends
-======
+
 A Python 3 client for tracking simple trends on Instagram
 
 Installation
 ---
-Clone this repository https://github.com/mboyanna/simpletrends.git
-Clone python-instagram repository, it's a fork of the Instagram/Facebook provided client and it's here https://github.com/mboyanna/python-instagram.git
-Install the python packages:
+* Clone this repository https://github.com/mboyanna/simpletrends.git
+* Clone python-instagram repository https://github.com/mboyanna/python-instagram.git (Note: this a fork of the Instagram/Facebook provided client)
+* Install the python packages:
 ```
 $ pip install python-instagram
 $ pip install simpletrends 
