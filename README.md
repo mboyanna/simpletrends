@@ -16,13 +16,13 @@ While developer API us useful, the data coming from Istagram 'out of box' is of 
 
 Developer API
 -----
-Instagram (and Facebook) maintain a developer API which changes from time to time. Programatic client is tied to specific version of developer API, and needs to be change when the developer API changes. In this implementation we support the Instagram API v1 and a few ways to retrieve information. Some of the ways are listed below. There are building blocks available for implementing many more ways.
+Instagram (and Facebook) maintain a developer API which changes from time to time. This client is tied to specific version of developer API, and needs to be changed when the developer API changes. In this implementation we support the Instagram API v1 and a few ways to retrieve information. Some of the ways are listed below. There are building blocks available for implementing many more ways.
 
 Software versions supported
 -----
 This client will work only for specific versions of the components, as listed below:
-Instagram Developer API v1
-Python 3+
+* Instagram Developer API v1
+* Python 3+
 
 Security and client mode limitations
 -----
@@ -38,7 +38,7 @@ Setup
 
 Prerequisites
 -----
-The user of this programmatic client needs to setup a URI that receive redirect by Instagram in the form of http://your-redirect-uri?code=CODE
+The user of this programmatic client needs to setup a URI that receive redirect by Instagram in the form of ```http://your-redirect-uri?code=CODE```
 Install python on your system
 Note: Your system needs to have the appropriate versions of software installed, see the section 'Software versions supported'
 
@@ -69,8 +69,10 @@ Installation
 Clone this repository https://github.com/mboyanna/simpletrends.git
 Clone python-instagram repository, it's a fork of the Instagram/Facebook provided client and it's here https://github.com/mboyanna/python-instagram.git
 Install the python packages:
+```
 $ pip install python-instagram
 $ pip install simpletrends 
+```
 Ensure all Setup steps are completed
 Adjust application settings as described in 'Application settings' section
 
@@ -93,6 +95,7 @@ Using the programmatic client, api documentation
 
 ***TBD***
 Get usernames of all users posts with hashtags #urbandecay from the last 30 days. 
+```
     tag_recent_media_crawl_tag = bind_method(
                 path="/tags/{tag_name}/media/recent",
                 accepts_parameters=['count', 'max_tag_id', 'tag_name', 'max_pages'],
@@ -100,3 +103,4 @@ Get usernames of all users posts with hashtags #urbandecay from the last 30 days
                 response_type='list',
                 paginates=True,
                 pagination_format='next_min_tag_id')
+```
