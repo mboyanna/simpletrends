@@ -38,8 +38,9 @@ Setup
 
 Prerequisites
 -----
-The user of this programmatic client needs to setup a URI that receive redirect by Instagram in the form of ```http://your-redirect-uri?code=CODE```
-Install python on your system
+Prerequisites for installing this client are:
+* existance of a URI that can receive redirects by Instagram in the form of ```http://your-redirect-uri?code=CODE```
+* python
 Note: Your system needs to have the appropriate versions of software installed, see the section 'Software versions supported'
 
 Setting up new programmatic client w Instagram/Facebook
