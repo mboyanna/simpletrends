@@ -4,8 +4,8 @@ A Python 3 client for tracking simple trends on Instagram
 
 Installation
 ---
-* Clone repository https://github.com/mboyanna/simpletrends.git 
-* Clone python-instagram repository for tag addTagcrawlAndFixCommentIssues to directory of your choice. Repository is at https://github.com/mboyanna/python-instagram.git (Note: this a fork of the Instagram/Facebook provided client). Remember the directory where you cloned it. It will be refered to as <python-instagram_dir> in the commands that follow.
+* Clone repository https://github.com/mboyanna/simpletrends.git to one directory 
+* Clone python-instagram repository for tag addTagcrawlAndFixCommentIssues to a different directory, repository at https://github.com/mboyanna/python-instagram.git (Note: this a fork of the Instagram/Facebook provided client). Note down the directory where you cloned it. It will be referred to as <python-instagram_dir> in the commands that follow.
 * Install the python packages:
 ```
 $ pip install -e <python-instagram_dir>
