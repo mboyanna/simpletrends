@@ -19,8 +19,8 @@ class SimpleTrends(object):
 		
 		if params.with_debug_logging:
 			print("Time period: ", timedelta_days," days back")
-			print("Cutoff date [UTC]:", cutoff_date)
 			print("Hashtag:", tag_name)
+			print("Cutoff date [UTC]:", cutoff_date)
 
 		all_usernames = set()
 		all_recent_posts = []
@@ -86,16 +86,16 @@ class SimpleTrends(object):
 		print("\n")
 
 
-def main(args):
-	st=SimpleTrends
-	print("Example 1: 90 days back")
-	st._call_example_90_days(st)
-	print("Example 2: 2 days back")
-	st._call_example_2_days(st)
+# def main(args):
+# 	st=SimpleTrends
+# 	print("Example 1: 90 days back")
+# 	st._call_example_90_days(st)
+# 	print("Example 2: 2 days back")
+# 	st._call_example_2_days(st)
 
 
-if __name__ == '__main__':
-	main(sys.argv)
+# if __name__ == '__main__':
+# 	main(sys.argv)
 
 
 
