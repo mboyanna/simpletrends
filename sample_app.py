@@ -45,9 +45,9 @@ def _call_example_90_days(self):
 def main(args):
 	st=SimpleTrends
 	print("Example 1")
-	_call_example_90_days(st)
-	print("Example 2")
 	_call_example_2_days(st)
+	print("Example 2")
+	_call_example_90_days(st)
 
 
 if __name__ == '__main__':
