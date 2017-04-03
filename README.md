@@ -28,7 +28,7 @@ $ python simpletrends/simpletrends.py
 
 ### Using the programmatic client
 
-API to retrieve usernames or usernames and posts with the given hashtag 'h' in the last 'n' days
+API to retrieve handles for all users for a hashtag 'h' in the last 'n' days
 ```
 all_recent_posts_for_tag(days_old=n, hashtag=h)
 ```
