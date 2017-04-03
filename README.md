@@ -4,11 +4,11 @@ A Python 3 client for tracking simple trends on Instagram
 
 Installation
 ---
-* Clone this repository https://github.com/mboyanna/simpletrends.git
-* Clone python-instagram repository https://github.com/mboyanna/python-instagram.git (Note: this a fork of the Instagram/Facebook provided client)
+* Clone repository https://github.com/mboyanna/simpletrends.git 
+* Clone python-instagram repository for tag addTagcrawlAndFixCommentIssues to directory of your choice. Repository is at https://github.com/mboyanna/python-instagram.git (Note: this a fork of the Instagram/Facebook provided client). Remember the directory where you cloned it. It will be refered to as <python-instagram_dir> in the commands that follow.
 * Install the python packages:
 ```
-$ pip install python-instagram
+$ pip install -e <python-instagram_dir>
 $ pip install simpletrends 
 ```
 
@@ -57,9 +57,8 @@ To use this client beyond provided examples, you'll need to use your own Instagr
 ### Setting up new programmatic client w Instagram/Facebook
 Every programmatic client has to be registered as a new client on the Instagram web site http://instagram.com/developer ("Manage Clients" gear icon in the upper right corner). The registration process requires that you also provide URI for redirect from Instagram like described in the prerequisites.
 
-### Acquiring security token from Instagram
-***TBD*** There are two ways to acquire it. Will well do only the ....
-To get security token call the function xyz.... (which will orchestrate the whole thing)... then record security token for later.
+### Acquiring access token from Instagram
+Current sample application is already setup with an access token for one sample account, but to use this client you'll need to setup your own. Instructions are in https://www.instagram.com/developer/authentication/
 
 ### Getting access to full Instagram firehose: sandbox and going live
 There are two modes available for clients of Instagram: sandbox and live mode. A new client will automatically be put in sandbox mode which means it'll be restricted to a limited number of users and their posts. This is great for developing and testing your app. Once the client is tested in the sandbox, it needs to transition to live mode or to 'go live' to be able to see all posts. Instructions how to go live are in 'Going live on Instagram' section below.
