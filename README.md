@@ -28,12 +28,12 @@ $ python sample_app.py
 
 ### Using the programmatic client
 
-Client currently supports only one API which can retrieve handles for all users for a hashtag 'h' in the last 'n' days
+
+Client currently supports only one API which can be used to retrieve handles for all users for a hashtag 'h' in the last 'n' days like so:
 ```
 all_recent_posts_for_tag(days_old=n, hashtag=h)
 ```
-
-Note: Depending on the client setting for 'with_debug_logging', this call will return just usernames, or usernames together with timestamps of the posts they made. This is how to make the call in your Python program: 
+Note: Depending on the client setting for 'with_debug_logging', this call will return just usernames, or usernames together with timestamps of the posts they made. sample_app.py contains example of how to use this programmatic client. This is how to make the call in your Python program: 
 ```
 def _call_example(self):
 	...
