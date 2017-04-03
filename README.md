@@ -23,24 +23,26 @@ Run example
 -----
 To run the examples where we retrieve all usernames for users who posted with hashtag #urbandecay in the last 90 days, and in the last 2 days:
 ```
-$ python simpletrends/simpletrends.py
+$ python sample_app.py
 ```
 
 ### Using the programmatic client
 
-API to retrieve handles for all users for a hashtag 'h' in the last 'n' days
+Client currently supports only one API which can retrieve handles for all users for a hashtag 'h' in the last 'n' days
 ```
 all_recent_posts_for_tag(days_old=n, hashtag=h)
 ```
 
 Note: Depending on the client setting for 'with_debug_logging', this call will return just usernames, or usernames together with timestamps of the posts they made. This is how to make the call in your Python program: 
 ```
-		st = SimpleTrends
-		if with_debug_logging:
-			all_usernames, all_posts = st.all_recent_posts_for_tag(days_old=2, hashtag='urbandecay')
-		else:
-			all_usernames = st.all_recent_posts_for_tag(days_old=2, hashtag='urbandecay')
+def _call_example(self):
+	...
+	if params.with_debug_logging:
+		all_usernames, all_posts = self.all_recent_posts_for_tag(self, days_old=2, hashtag="urbandecay")
+	else:
+		all_usernames = self.all_recent_posts_for_tag(self, days_old=2, hashtag="urbandecay")
 ```
+This client supports parameters which are described in the Setup section below, under "Application settings"
 
 
 Setup 
@@ -73,17 +75,21 @@ Ensure all Setup steps are completed
 Adjust application settings as described in 'Application settings' section
 
 ### Application settings
-***TBD***
-Programmatic client comes with some presets out of box. These are good only to run as examples. To use this client in your applications, adjust the following entries in file ***TBD*** xyz 
-* 
-This is your Instagram security token ('as described in the above sections')
+Programmatic client comes with some presets out of box. These are good only to run as examples. To use this client in your applications, adjust the following entries in params.py file: 
+* access_token
+	This is your Instagram security token tied to your unique Instagram account and client you register with instagram. Details on how to obtain it are in https://www.instagram.com/developer/authentication/
+* client_secret
+	This is your Instagram client specific secret key. Details on how to obtain it are in https://www.instagram.com/developer/authentication/
 * batch_size
-  number of posts per request are to be retrieved at one time, currently set at 10
+	Useful if hitting rate limiting constraints, controls number of posts per request to be retrieved at one time, currently set at 10
 * burst_size
-  number of requests to Instagram API before sleeping 
+  	Useful if hitting rate limiting constraints, controls number of requests to Instagram API before sleeping 
 * sleep_time
- duration of sleep 
-
+ 	Useful if hitting rate limiting constraints, controls duration of sleep 
+* with_debug_logging
+	Determines whether you'll be seeing verbose logging output tracking progress of the program. Similar to DEBUG level of tracing used in slog4j in Java 
+* instagram_api
+	Dont change this parameter - it is tied to how Instagram developer api v1 works 
 
 Background
 -----
