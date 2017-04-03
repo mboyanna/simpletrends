@@ -4,12 +4,12 @@ A Python 3 client for tracking simple trends on Instagram
 
 Installation
 ---
-* Clone repository https://github.com/mboyanna/simpletrends.git to one directory 
-* Clone python-instagram repository for tag addTagcrawlAndFixCommentIssues to a different directory, repository at https://github.com/mboyanna/python-instagram.git (Note: this a fork of the Instagram/Facebook provided client). Note down the directory where you cloned it. It will be referred to as <python-instagram_dir> in the commands that follow.
+* Clone repository https://github.com/mboyanna/simpletrends.git
+* Clone python-instagram repository for tag addTagcrawlAndFixCommentIssues, repository at https://github.com/mboyanna/python-instagram.git (Note: this a fork of the Instagram/Facebook provided client). 
 * Install the python packages:
 ```
-$ pip install -e <python-instagram_dir>
-$ pip install simpletrends 
+$ pip install -e python-instagram
+$ pip install -e simpletrends
 ```
 
 Requires
@@ -23,7 +23,7 @@ Run example
 -----
 To run the examples where we retrieve all usernames for users who posted with hashtag #urbandecay in the last 90 days, and in the last 2 days:
 ```
-$ python sample_app.py
+$ python simpletrends/sample_app.py
 ```
 
 ### Using the programmatic client
