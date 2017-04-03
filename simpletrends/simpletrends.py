@@ -27,6 +27,7 @@ class SimpleTrends(object):
 		cutoff_date = datetime.utcnow() - timedelta(timedelta_days-1)
 		
 		if with_debug_logging:
+			print("Time period: ", timedelta_days," days back")
 			print("Cutoff date [UTC]:", cutoff_date)
 			print("Hashtag:", tag_name)
 
@@ -47,20 +48,6 @@ class SimpleTrends(object):
 
 			if with_debug_logging:
 				all_recent_posts.extend(filtered_recent_posts)
-
-			#DBG
-			print("with_debug_logging=", with_debug_logging)
-			print("Iteration ", burst_iter+1)
-			print("recent_posts: ")
-			for m in recent_posts:
-				print(m.user.username," at ",m.created_time)
-			print("filtered_recent_posts: ")
-			for m in filtered_recent_posts:
-				print(m.user.username," at ",m.created_time)
-			print("All recent posts: ")
-			for m in all_recent_posts:
-				print(m.user.username," at ",m.created_time)
-			#end of DBG
 
 			if (len(recent_posts)>1 and recent_posts[len(recent_posts)-1].created_time <= cutoff_date):
 				break
@@ -83,32 +70,36 @@ class SimpleTrends(object):
 		else:
 			all_usernames = self.all_recent_posts_for_tag(self, days_old=2, hashtag="urbandecay")
 		
-		print("\n","\n","List of users who posted #urbandecay on Instagram in the last 2 (TWO) days: ", all_usernames, sep="")	
+		print("List of handles who posted #urbandecay on Instagram in the last 2 (TWO) days is: ")
+		print (all_usernames)	
 		if with_debug_logging:
 			print("Detailed log of posts follows.\n [* Note: log times are in UTC which is PST+7hrs now is:",datetime.utcnow()," ]")
 			for post in all_posts:
 				print (post.user.username, post.created_time, post.post_text, sep=" at ")
-		print("\n\n")
+		print("\n")
 
-	def _call_example_30_days(self):
+	def _call_example_90_days(self):
 		all_usernames = set()
 		all_posts = []		
 		if with_debug_logging:
-			all_usernames, all_posts = self.all_recent_posts_for_tag(self, days_old=30, hashtag="urbandecay")
+			all_usernames, all_posts = self.all_recent_posts_for_tag(self, days_old=90, hashtag="urbandecay")
 		else:
-			all_usernames = self.all_recent_posts_for_tag(self, days_old=30, hashtag="urbandecay")
+			all_usernames = self.all_recent_posts_for_tag(self, days_old=90, hashtag="urbandecay")
 		
-		print("\n","\n","List of users who posted #urbandecay on Instagram in the the last 30 days: ", all_usernames, sep="")	
+		print("List of handles who posted #urbandecay on Instagram in the the last 90 days is: ")
+		print (all_usernames)	
 		if with_debug_logging:
 			print("Detailed log of posts follows.\n [* Note: log times are in UTC which is PST+7hrs now is:",datetime.utcnow()," ]")
 			for post in all_posts:
 				print (post.user.username, post.created_time, post.post_text, sep=" at ")
-		print("\n\n")
+		print("\n")
 
 
 def main(args):
 	st=SimpleTrends
-	st._call_example_30_days(st)
+	print("Example 1: 90 days back")
+	st._call_example_90_days(st)
+	print("Example 2: 2 days back")
 	st._call_example_2_days(st)
 
 
