@@ -21,22 +21,68 @@ Software versions supported
 
 Run example
 -----
-***TBD***
-
-
-### Using the programmatic client, api documentation
-
-***TBD***
-Get usernames of all users posts with hashtags #urbandecay from the last 30 days. 
+To run the examples where we retrieve all usernames for users who posted with hashtag #urbandecay in the last 90 days, and in the last 2 days:
 ```
-    tag_recent_media_crawl_tag = bind_method(
-                path="/tags/{tag_name}/media/recent",
-                accepts_parameters=['count', 'max_tag_id', 'tag_name', 'max_pages'],
-                root_class=Media,
-                response_type='list',
-                paginates=True,
-                pagination_format='next_min_tag_id')
+$ python simpletrends/simpletrends.py
 ```
+
+### Using the programmatic client
+
+API to retrieve usernames or usernames and posts with the given hashtag 'h' in the last 'n' days
+```
+all_recent_posts_for_tag(days_old=n, hashtag=h)
+```
+
+Note: Depending on the client setting for 'with_debug_logging', this call will return just usernames, or usernames together with timestamps of the posts they made. This is how to make the call in your Python program: 
+```
+		st = SimpleTrends
+		if with_debug_logging:
+			all_usernames, all_posts = st.all_recent_posts_for_tag(days_old=2, hashtag='urbandecay')
+		else:
+			all_usernames = st.all_recent_posts_for_tag(days_old=2, hashtag='urbandecay')
+```
+
+
+Setup 
+-----
+
+To use this client beyond provided examples, you'll need to use your own Instagram account and complete the steps in this section. For further explanations on concepts mentioned in this section, or how to further adjust the client please read section "Background" all the way down.
+
+### Prerequisites
+* Instagram account
+* URI that can receive redirects by Instagram in the form of ```http://your-redirect-uri?code=CODE```
+
+### Setting up new programmatic client w Instagram/Facebook
+Every programmatic client has to be registered as a new client on the Instagram web site http://instagram.com/developer ("Manage Clients" gear icon in the upper right corner). The registration process requires that you also provide URI for redirect from Instagram like described in the prerequisites.
+
+### Acquiring security token from Instagram
+***TBD*** There are two ways to acquire it. Will well do only the ....
+To get security token call the function xyz.... (which will orchestrate the whole thing)... then record security token for later.
+
+### Getting access to full Instagram firehose: sandbox and going live
+There are two modes available for clients of Instagram: sandbox and live mode. A new client will automatically be put in sandbox mode which means it'll be restricted to a limited number of users and their posts. This is great for developing and testing your app. Once the client is tested in the sandbox, it needs to transition to live mode or to 'go live' to be able to see all posts. Instructions how to go live are in 'Going live on Instagram' section below.
+
+### Sandbox limitations on Instagram
+Sandbox is initially limited to only the posts made by it's own user account. It can be extended to include other user's posts to the extent that other users are invited and accept participation in the Sandbox. Instagram provides a way to set that up on the developers site, currently under "Sandbox Invites" gear in the upper right corner.
+
+### Going live on Instagram
+To go live, the programmatic client needs to get permission from Instagram. Follow the steps in "Manage Clients" section of Instagram's site for developers, usually under 'Permissions'. 
+
+### To use this client in your python programs
+Ensure all Setup steps are completed
+Adjust application settings as described in 'Application settings' section
+
+### Application settings
+***TBD***
+Programmatic client comes with some presets out of box. These are good only to run as examples. To use this client in your applications, adjust the following entries in file ***TBD*** xyz 
+* 
+This is your Instagram security token ('as described in the above sections')
+* batch_size
+  number of posts per request are to be retrieved at one time, currently set at 10
+* burst_size
+  number of requests to Instagram API before sleeping 
+* sleep_time
+ duration of sleep 
 
 
 Background
@@ -60,43 +106,5 @@ Instagram has introduced rate limiting to prevent some clients for dominating it
 * posts retrieved per call 
 * sleep intervals in between bursts of repetitive calls
 Details on how to adjust these settings are explained in the section for Application Settings
-
-Setup 
------
-
-To use this client beyond provided examples, you'll need to use your own Instagram account and complete the steps in this section. 
-
-### Prerequisites
-* Instagram account
-* URI that can receive redirects by Instagram in the form of ```http://your-redirect-uri?code=CODE```
-
-### Setting up new programmatic client w Instagram/Facebook
-Every programmatic client has to be registered as a new client on the Instagram web site http://instagram.com/developer ("Manage Clients" gear icon in the upper right corner). The registration process requires that you also provide URI for redirect from Instagram like described in the prerequisites.
-
-### Acquiring security token from Instagram
-***TBD*** There are two ways to acquire it. Will well do only the ....
-To get security token call the function xyz.... (which will orchestrate the whole thing)... then record security token for later.
-
-### Getting access to full Instagram firehose: client mode and going live
-There are two modes clients can be sandbox mode, and live mode. This new client will automatically be put in sandbox mode which means it'll be restricted to a limited number of users and media. This is great for developing and testing your app. 
-Once the client is tested in the sandbox, it needs to acquire additional permissions to be able to see all publicly available posts. 
-
-### Sandbox limitations on Instagram
-Sandbox is initially limited to only the posts made by it's own user account. It can be extended to include other user's posts to the extent that other users are invited and accept participation in the Sandbox. Instagram provides a way to set that up on the developers site, currently under "Sandbox Invites" gear in the upper right corner.
-
-### Going live on Instagram
-To go live, the programmatic client needs to get permission from Instagram. Follow the steps in "Manage Clients" section of Instagram's site for developers, usually under 'Permissions'. 
-
-### To use this client in your python programs
-Ensure all Setup steps are completed
-Adjust application settings as described in 'Application settings' section
-
-### Application settings
-***TBD***
-Programmatic client comes with some presets out of box. These are good only to run as examples. To use this client in your applications, adjust the following entries in file ***TBD*** xyz 
-- put your Instagram security token in ... ('as described in the above sections')
-- posts per request are to be retrieved at one time
-- number of requests to Instagram API before sleeping 
-- duration of sleep 
 
 
