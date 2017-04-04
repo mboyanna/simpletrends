@@ -33,7 +33,6 @@ $ python simpletrends/sample_app.py
 
 ### Using the programmatic client
 
-
 Client currently supports only one API which can be used to retrieve handles for all users for a hashtag 'h' in the last 'n' days like so:
 ```
 all_recent_posts_for_tag(days_old=n, hashtag=h)
@@ -48,6 +47,14 @@ def _call_example(self):
 		all_usernames = self.all_recent_posts_for_tag(self, days_old=2, hashtag="urbandecay")
 ```
 This client supports parameters which are described in the Setup section below, under "Application settings"
+
+
+### Limitations
+
+With debug logging option turned on, this client requires lots of memory to run. When collecting handles for a very popular hashtag, unless running on a computer with large memory, turn the debug logging off in params.py as explained under Application Settings paragraph in Setup section below. 
+
+This client first collects all data and then returns results. For a very popular hashtag and with very small settings for batch sizes, this may take more than a ~sec. In the next version, this client can be developed to do a 'trickle' runs, meaning that it can keep pushing the results as they come out rather than in one fell swoop at the end. 
+
 
 
 Setup 
