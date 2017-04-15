@@ -28,7 +28,10 @@ class SimpleTrends(object):
         filtered_recent_posts = []
 
         recent_posts, next_ = params.instagram_api.tag_recent_media_crawl_tag(count=params.batch_size, tag_name=tag_name, pagination_format='next_min_tag_id', scope='public_content')
-        all_recent_posts.extend (filter(lambda a_post, cutoff_dt=cutoff_date : (a_post.created_time > cutoff_dt), recent_posts))
+        filtered_recent_posts = [a_post for a_post in recent_posts if a_post.created_time > cutoff_date]
+        for post in filtered_recent_posts:
+            all_usernames.add(post.user.username)
+        all_recent_posts.extend(filtered_recent_posts)
 
         burst_iter = 1
         while next_:
