@@ -1,1 +1,6 @@
 simpletrends/__pycache__
+__pycache__
+simpletrends.egg-info/
+simpletrends/debugSession.log
+simpletrends/params_test.py
+simpletrends/test-params-test.py
