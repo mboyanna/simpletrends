@@ -1,4 +1,5 @@
-simpletrends/__pycache__
+simpletrends/__pycache__/__init__.cpython-35.pyc
+simpletrends/__pycache__/simpletrends.cpython-35.pyc
 __pycache__
 simpletrends.egg-info/
 simpletrends/debugSession.log
